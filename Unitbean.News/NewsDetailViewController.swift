@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  NewsDetailViewController.swift
 //  Unitbean.News
 //
 //  Created by Игорь Дикань on 19.11.2020.
@@ -8,13 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class NewsDetailViewController: UIViewController {
 
+    @IBOutlet weak var detailTitileLabel: UILabel!
+    
+    var detailTitle = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        detailTitileLabel.text = detailTitle
     }
-
-
 }
-
