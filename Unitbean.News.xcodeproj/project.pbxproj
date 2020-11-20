@@ -14,6 +14,11 @@
 		63EA768925667DF80054D4C7 /* NewsfeedTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63EA768825667DF80054D4C7 /* NewsfeedTableViewController.storyboard */; };
 		63EA768B25667E250054D4C7 /* NewsfeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EA768A25667E250054D4C7 /* NewsfeedTableViewController.swift */; };
 		63EA768D256680C40054D4C7 /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EA768C256680C40054D4C7 /* NewsDetailViewController.swift */; };
+		63EA7690256685370054D4C7 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EA768F256685370054D4C7 /* NetworkService.swift */; };
+		63EA7692256685460054D4C7 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EA7691256685460054D4C7 /* NetworkDataFetcher.swift */; };
+		63EA76942566856E0054D4C7 /* NewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EA76932566856E0054D4C7 /* NewsResponse.swift */; };
+		63EA769A25668AFB0054D4C7 /* NewsfeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63EA769925668AFB0054D4C7 /* NewsfeedCell.xib */; };
+		63EA769C25668B520054D4C7 /* NewsfeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EA769B25668B520054D4C7 /* NewsfeedCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,11 @@
 		63EA768825667DF80054D4C7 /* NewsfeedTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewsfeedTableViewController.storyboard; sourceTree = "<group>"; };
 		63EA768A25667E250054D4C7 /* NewsfeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedTableViewController.swift; sourceTree = "<group>"; };
 		63EA768C256680C40054D4C7 /* NewsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
+		63EA768F256685370054D4C7 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		63EA7691256685460054D4C7 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
+		63EA76932566856E0054D4C7 /* NewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsResponse.swift; sourceTree = "<group>"; };
+		63EA769925668AFB0054D4C7 /* NewsfeedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsfeedCell.xib; sourceTree = "<group>"; };
+		63EA769B25668B520054D4C7 /* NewsfeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,14 +70,59 @@
 			children = (
 				63EA766C256674380054D4C7 /* AppDelegate.swift */,
 				63EA766E256674380054D4C7 /* SceneDelegate.swift */,
-				63EA76752566743C0054D4C7 /* Assets.xcassets */,
-				63EA76772566743C0054D4C7 /* LaunchScreen.storyboard */,
-				63EA768825667DF80054D4C7 /* NewsfeedTableViewController.storyboard */,
-				63EA768A25667E250054D4C7 /* NewsfeedTableViewController.swift */,
-				63EA768C256680C40054D4C7 /* NewsDetailViewController.swift */,
+				63EA7695256685820054D4C7 /* Models */,
+				63EA768E2566851F0054D4C7 /* Services */,
+				63EA7697256685AB0054D4C7 /* Views */,
+				63EA76962566859F0054D4C7 /* Controllers */,
 				63EA767A2566743C0054D4C7 /* Info.plist */,
 			);
 			path = Unitbean.News;
+			sourceTree = "<group>";
+		};
+		63EA768E2566851F0054D4C7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				63EA768F256685370054D4C7 /* NetworkService.swift */,
+				63EA7691256685460054D4C7 /* NetworkDataFetcher.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		63EA7695256685820054D4C7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				63EA76932566856E0054D4C7 /* NewsResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		63EA76962566859F0054D4C7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				63EA769B25668B520054D4C7 /* NewsfeedCell.swift */,
+				63EA768A25667E250054D4C7 /* NewsfeedTableViewController.swift */,
+				63EA768C256680C40054D4C7 /* NewsDetailViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		63EA7697256685AB0054D4C7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				63EA76752566743C0054D4C7 /* Assets.xcassets */,
+				63EA769925668AFB0054D4C7 /* NewsfeedCell.xib */,
+				63EA7698256685B40054D4C7 /* Storyboards */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		63EA7698256685B40054D4C7 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				63EA76772566743C0054D4C7 /* LaunchScreen.storyboard */,
+				63EA768825667DF80054D4C7 /* NewsfeedTableViewController.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,6 +185,7 @@
 			files = (
 				63EA768925667DF80054D4C7 /* NewsfeedTableViewController.storyboard in Resources */,
 				63EA76792566743C0054D4C7 /* LaunchScreen.storyboard in Resources */,
+				63EA769A25668AFB0054D4C7 /* NewsfeedCell.xib in Resources */,
 				63EA76762566743C0054D4C7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,9 +197,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63EA76942566856E0054D4C7 /* NewsResponse.swift in Sources */,
+				63EA7692256685460054D4C7 /* NetworkDataFetcher.swift in Sources */,
+				63EA7690256685370054D4C7 /* NetworkService.swift in Sources */,
 				63EA768D256680C40054D4C7 /* NewsDetailViewController.swift in Sources */,
 				63EA768B25667E250054D4C7 /* NewsfeedTableViewController.swift in Sources */,
 				63EA766D256674380054D4C7 /* AppDelegate.swift in Sources */,
+				63EA769C25668B520054D4C7 /* NewsfeedCell.swift in Sources */,
 				63EA766F256674380054D4C7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,13 +10,24 @@ import UIKit
 
 class NewsDetailViewController: UIViewController {
 
+    @IBOutlet weak var detailAuthorLabel: UILabel!
+    @IBOutlet weak var detailDateLabel: UILabel!
     @IBOutlet weak var detailTitileLabel: UILabel!
+    @IBOutlet weak var detailImageView: UIImageView!
+    @IBOutlet weak var detailTextLabel: UILabel!
+    
     
     var detailTitle = ""
+    var detailAuthor = ""
+    var detailDate = ""
+    var detailText = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         detailTitileLabel.text = detailTitle
+        detailAuthorLabel.text = detailAuthor
+        detailDateLabel.text = detailDate
+        detailTextLabel.text = detailText
     }
 }
