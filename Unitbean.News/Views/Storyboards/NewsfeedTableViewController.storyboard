@@ -62,7 +62,7 @@
                                 <color key="textColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="NewsImage" translatesAutoresizingMaskIntoConstraints="NO" id="pW5-4O-6zW">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="NoImage" translatesAutoresizingMaskIntoConstraints="NO" id="pW5-4O-6zW" customClass="WebImageView" customModule="Unitbean_News" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="300" width="375" height="213"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -143,6 +143,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="NewsImage" width="343" height="195"/>
+        <image name="NoImage" width="300" height="300"/>
     </resources>
 </document>

@@ -47,6 +47,7 @@ class NewsfeedTableViewController: UITableViewController {
         cell.newsTitleLabel.text = article?.title
         cell.newsDateLabel.text = article?.publishedAt
         cell.countShapeLabel.text = String(Int.random(in: 1...20))
+        cell.newsImageView.set(urlString: article?.urlToImage ?? "https://болгарка.укр/app_default/media/eshop/no_photo.jpg")
         return cell
     }
     
@@ -74,6 +75,7 @@ class NewsfeedTableViewController: UITableViewController {
                 detailVC.detailAuthor = article?.author ?? "Дикань Игорь"
                 detailVC.detailDate = article?.publishedAt ?? "1970-01-01"
                 detailVC.detailText = article?.description ?? "Детальное описание"
+                detailVC.detailImage = article?.urlToImage ?? "https://болгарка.укр/app_default/media/eshop/no_photo.jpg"
             }
         }
     }

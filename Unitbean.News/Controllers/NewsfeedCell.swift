@@ -13,7 +13,7 @@ class NewsfeedCell: UITableViewCell {
     
     static let reuseID = "NewsfeedCell"
     
-    @IBOutlet weak var newsImageView: UIImageView!
+    @IBOutlet weak var newsImageView: WebImageView!
     @IBOutlet weak var newsTitleLabel: UILabel!
     @IBOutlet weak var countShapeLabel: UILabel!
     @IBOutlet weak var newsDateLabel: UILabel!

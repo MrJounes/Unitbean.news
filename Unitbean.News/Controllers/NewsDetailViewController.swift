@@ -13,7 +13,7 @@ class NewsDetailViewController: UIViewController {
     @IBOutlet weak var detailAuthorLabel: UILabel!
     @IBOutlet weak var detailDateLabel: UILabel!
     @IBOutlet weak var detailTitileLabel: UILabel!
-    @IBOutlet weak var detailImageView: UIImageView!
+    @IBOutlet weak var detailImageView: WebImageView!
     @IBOutlet weak var detailTextLabel: UILabel!
     
     
@@ -21,6 +21,7 @@ class NewsDetailViewController: UIViewController {
     var detailAuthor = ""
     var detailDate = ""
     var detailText = ""
+    var detailImage = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,5 +30,6 @@ class NewsDetailViewController: UIViewController {
         detailAuthorLabel.text = detailAuthor
         detailDateLabel.text = detailDate
         detailTextLabel.text = detailText
+        detailImageView.set(urlString: detailImage)
     }
 }
