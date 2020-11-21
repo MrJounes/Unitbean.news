@@ -72,7 +72,12 @@ class NewsfeedTableViewController: UITableViewController {
                 let detailVC = segue.destination as! NewsDetailViewController
                 let article = newsResponse?.articles[indexPath.row]
                 detailVC.detailTitle = article?.title ?? "Заголовок"
-                detailVC.detailAuthor = article?.author ?? "Дикань Игорь"
+                //detailVC.detailAuthor = article?.author ?? "Дикань Игорь"
+                if article?.author == nil || article?.author == "" {
+                    detailVC.detailAuthor = "Дикань Игорь"
+                } else {
+                    detailVC.detailAuthor = article?.author as! String
+                }
                 detailVC.detailDate = article?.publishedAt ?? "1970-01-01"
                 detailVC.detailText = article?.description ?? "Детальное описание"
                 detailVC.detailImage = article?.urlToImage ?? "https://болгарка.укр/app_default/media/eshop/no_photo.jpg"
