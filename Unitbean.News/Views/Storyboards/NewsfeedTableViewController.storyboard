@@ -64,17 +64,17 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дикань Игорь" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c38-Lg-Qd6" userLabel="authorLabel">
                                                 <rect key="frame" x="16" y="24" width="92" height="20"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="92" id="6is-62-hqw"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="92" id="6is-62-hqw"/>
                                                     <constraint firstAttribute="height" constant="20" id="qNf-Sh-f3b"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28 мая в 12:05" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yTW-bI-IVb" userLabel="dateLabel">
-                                                <rect key="frame" x="126" y="24" width="78" height="20"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21 November in 09:33" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yTW-bI-IVb" userLabel="dateLabel">
+                                                <rect key="frame" x="126" y="24" width="106.5" height="20"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="78" id="QMy-31-jNq"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="78" id="QMy-31-jNq"/>
                                                     <constraint firstAttribute="height" constant="20" id="aiv-gI-RBY"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>

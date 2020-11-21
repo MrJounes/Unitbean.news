@@ -27,6 +27,20 @@ class NewsfeedTableViewController: UITableViewController {
             self.newsResponse = newsResponse
             self.table.reloadData()
         }
+
+        let date = self.getDate(dateString: "2020-11-21T09:33:00Z")
+        print(date)
+        
+    }
+    
+    private func getDate(dateString: String?) -> String {
+        guard let dateString = dateString else { return "1970-01-01"}
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        formatter.locale = Locale(identifier: "ru_RU")
+        let date = formatter.date(from: dateString)
+        formatter.dateFormat = "dd MMMM 'в' HH:mm"
+        return formatter.string(from: date!)
     }
 
     // MARK: - Table view data source
@@ -45,7 +59,8 @@ class NewsfeedTableViewController: UITableViewController {
             cell.newsAuthorLabel.text = article?.author
         }
         cell.newsTitleLabel.text = article?.title
-        cell.newsDateLabel.text = article?.publishedAt
+        //cell.newsDateLabel.text = article?.publishedAt
+        cell.newsDateLabel.text = self.getDate(dateString: article?.publishedAt)
         cell.countShapeLabel.text = String(Int.random(in: 1...20))
         cell.newsImageView.set(urlString: article?.urlToImage ?? "https://болгарка.укр/app_default/media/eshop/no_photo.jpg")
         return cell
@@ -78,7 +93,8 @@ class NewsfeedTableViewController: UITableViewController {
                 } else {
                     detailVC.detailAuthor = article?.author as! String
                 }
-                detailVC.detailDate = article?.publishedAt ?? "1970-01-01"
+                //detailVC.detailDate = article?.publishedAt ?? "1970-01-01"
+                detailVC.detailDate = self.getDate(dateString: article?.publishedAt ?? "1970-01-01")
                 detailVC.detailText = article?.description ?? "Детальное описание"
                 detailVC.detailImage = article?.urlToImage ?? "https://болгарка.укр/app_default/media/eshop/no_photo.jpg"
             }
