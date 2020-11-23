@@ -10,9 +10,18 @@ import UIKit
 
 class NewsfeedTableViewController: UITableViewController {
     
+    struct Constsants {
+        static let numberOfNews: Int = 4
+    }
+    
     let dateConversionService = DateConversionService.shared
     let newsFetcher = NewsFetcher.shared
     var newsResponse: NewsResponse? = nil
+    var articleResponse: [Article]? = nil
+    
+    var recordsArray: [Article] = Array()
+    var limit = Constsants.numberOfNews
+    var totalEnetries = 20
     
     @IBOutlet var table: UITableView!
     
@@ -24,6 +33,40 @@ class NewsfeedTableViewController: UITableViewController {
         newsFetcher.getNews { (newsResponse) in
             guard let newsResponse = newsResponse else { return }
             self.newsResponse = newsResponse
+            self.articleResponse = newsResponse.articles
+            self.table.reloadData()
+            
+            var index = 0
+            while index < self.limit {
+                guard let article = self.articleResponse?[index] else { return }
+                self.recordsArray.append(article)
+                index = index + 1
+            }
+            print(self.recordsArray.count)
+            self.table.reloadData()
+        }
+        
+        self.addLoadMoreButton()
+    }
+    
+    func addLoadMoreButton() {
+        
+        let button = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: self.tableView.frame.width, height: 40)))
+        button.setTitle("Загрузить еще", for: .normal)
+        button.backgroundColor = .lightGray
+        button.addTarget(self, action: #selector(moreButtonClicked(_:)), for: .touchUpInside)
+        self.tableView.tableFooterView = button
+    }
+    
+    @objc func moreButtonClicked(_ sender: UIButton) {
+        if recordsArray.count < totalEnetries && recordsArray.count < totalEnetries + Constsants.numberOfNews{
+            var index = recordsArray.count
+            limit = index + Constsants.numberOfNews
+            while index < limit {
+                guard let article = articleResponse?[index] else { return }
+                recordsArray.append(article)
+                index = index + 1
+            }
             self.table.reloadData()
         }
     }
@@ -44,8 +87,7 @@ class NewsfeedTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newsResponse?.articles.count ?? 0
-        //return 3
+        return recordsArray.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
