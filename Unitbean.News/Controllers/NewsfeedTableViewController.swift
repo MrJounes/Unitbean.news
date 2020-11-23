@@ -27,9 +27,18 @@ class NewsfeedTableViewController: UITableViewController {
             self.newsResponse = newsResponse
             self.table.reloadData()
         }
-
-        let date = self.getDate(dateString: "2020-11-21T09:33:00Z")
-        print(date)
+        
+//        let button = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: self.tableView.frame.width, height: 40)))
+//        button.setTitle("Загрузить еще", for: .normal)
+//        button.setTitleColor(.black, for: .normal)
+//        button.backgroundColor = .white
+//        button.addTarget(self, action: #selector(moreButtonClicked(_:)), for: .touchUpInside)
+//        self.tableView.tableFooterView = button
+        
+    }
+    
+    @objc func moreButtonClicked(_ sender: UIButton) {
+        print("More button clicked, fetch more data!")
         
     }
     
@@ -46,7 +55,8 @@ class NewsfeedTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newsResponse?.articles.count ?? 0
+        return newsResponse?.articles.count ?? 1
+        //return 3
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -59,7 +69,6 @@ class NewsfeedTableViewController: UITableViewController {
             cell.newsAuthorLabel.text = article?.author
         }
         cell.newsTitleLabel.text = article?.title
-        //cell.newsDateLabel.text = article?.publishedAt
         cell.newsDateLabel.text = self.getDate(dateString: article?.publishedAt)
         cell.countShapeLabel.text = String(Int.random(in: 1...20))
         cell.newsImageView.set(urlString: article?.urlToImage ?? "https://болгарка.укр/app_default/media/eshop/no_photo.jpg")
@@ -87,13 +96,11 @@ class NewsfeedTableViewController: UITableViewController {
                 let detailVC = segue.destination as! NewsDetailViewController
                 let article = newsResponse?.articles[indexPath.row]
                 detailVC.detailTitle = article?.title ?? "Заголовок"
-                //detailVC.detailAuthor = article?.author ?? "Дикань Игорь"
                 if article?.author == nil || article?.author == "" {
                     detailVC.detailAuthor = "Дикань Игорь"
                 } else {
                     detailVC.detailAuthor = article?.author as! String
                 }
-                //detailVC.detailDate = article?.publishedAt ?? "1970-01-01"
                 detailVC.detailDate = self.getDate(dateString: article?.publishedAt ?? "1970-01-01")
                 detailVC.detailText = article?.description ?? "Детальное описание"
                 detailVC.detailImage = article?.urlToImage ?? "https://болгарка.укр/app_default/media/eshop/no_photo.jpg"
