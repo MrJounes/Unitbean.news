@@ -23,4 +23,16 @@ class NewsfeedCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    func configure(with article: Article?) {
+        if article?.author == nil || article?.author == "" {
+            self.newsAuthorLabel.text = "Дикань Игорь"
+        } else {
+            self.newsAuthorLabel.text = article?.author
+        }
+        self.newsTitleLabel.text = article?.title
+        self.newsDateLabel.text = DateConversionService.shared.getDate(dateString: article?.publishedAt)
+        self.countShapeLabel.text = String(Int.random(in: 1...20))
+        self.newsImageView.set(urlString: article?.urlToImage ?? "https://болгарка.укр/app_default/media/eshop/no_photo.jpg")
+    }
 }

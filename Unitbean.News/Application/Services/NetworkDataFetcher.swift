@@ -10,7 +10,10 @@ import Foundation
 
 class NetworkDataFetcher {
     
-    let networkService = NetworkService()
+    private init() {}
+    static let shared = NetworkDataFetcher()
+    
+    let networkService = NetworkService.shared
     
     func fetchArticles(urlString: String, response: @escaping (NewsResponse?) -> Void) {
         networkService.request(urlString: urlString) { (result) in

@@ -32,4 +32,18 @@ class NewsDetailViewController: UIViewController {
         detailTextLabel.text = detailText
         detailImageView.set(urlString: detailImage)
     }
+    
+    func configure(with detailVC: NewsDetailViewController, newsResponse: NewsResponse?, indexPath: IndexPath) {
+        
+        let article = newsResponse?.articles[indexPath.row]
+        detailVC.detailTitle = article?.title ?? "Заголовок"
+        if article?.author == nil || article?.author == "" {
+            detailVC.detailAuthor = "Дикань Игорь"
+        } else {
+            detailVC.detailAuthor = article?.author as! String
+        }
+        detailVC.detailDate = DateConversionService.shared.getDate(dateString: article?.publishedAt ?? "1970-01-01")
+        detailVC.detailText = article?.description ?? "Детальное описание"
+        detailVC.detailImage = article?.urlToImage ?? "https://болгарка.укр/app_default/media/eshop/no_photo.jpg"
+    }
 }
