@@ -28,13 +28,14 @@ class NewsfeedTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.addLogoToNavBar()
         table.register(UINib(nibName: "NewsfeedCell", bundle: nil), forCellReuseIdentifier: NewsfeedCell.reuseID)
         
         newsFetcher.getNews { (newsResponse) in
             guard let newsResponse = newsResponse else { return }
             self.newsResponse = newsResponse
             self.articleResponse = newsResponse.articles
-            self.table.reloadData()
+            //self.table.reloadData()
             
             var index = 0
             while index < self.limit {
@@ -42,11 +43,30 @@ class NewsfeedTableViewController: UITableViewController {
                 self.recordsArray.append(article)
                 index = index + 1
             }
-            print(self.recordsArray.count)
             self.table.reloadData()
         }
         
         self.addLoadMoreButton()
+    }
+    
+    func addLogoToNavBar() {
+        if let navigationController = navigationController {
+            let imageLogo = UIImage(named: "NewsLogo")
+            
+            let widthNavBar = navigationController.navigationBar.frame.width
+            let heightNavBar = navigationController.navigationBar.frame.height
+            
+            let widhtForView = widthNavBar * 0.4
+            let heightForView = heightNavBar * 0.3
+            
+            let logoContainer = UIView(frame: CGRect(x: 0, y: 0, width: widhtForView, height: heightForView))
+            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: widhtForView, height: heightForView))
+            imageView.image = imageLogo
+            logoContainer.contentMode = .scaleAspectFit
+            logoContainer.addSubview(imageView)
+            
+            navigationItem.titleView = logoContainer
+        }
     }
     
     func addLoadMoreButton() {
@@ -63,7 +83,7 @@ class NewsfeedTableViewController: UITableViewController {
             var index = recordsArray.count
             limit = index + Constsants.numberOfNews
             while index < limit {
-                guard let article = articleResponse?[index] else { return }
+                guard let article = self.articleResponse?[index] else { return }
                 recordsArray.append(article)
                 index = index + 1
             }

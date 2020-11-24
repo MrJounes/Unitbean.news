@@ -22,7 +22,7 @@ class ButtonLoadMore {
     var limit = Constsants.numberOfNews
     var totalEnetries = 20
     
-    func addLoadMoreButton(tableView: UITableView) {
+    func addLoadMoreButton(tableView: UITableView, table: UITableView) {
         let button = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: tableView.frame.width, height: 40)))
         button.setTitle("Load more", for: .normal)
         button.backgroundColor = .lightGray
@@ -31,6 +31,17 @@ class ButtonLoadMore {
     }
 
     @objc func moreButtonClicked(_ sender: UIButton) {
-
+        if recordsArray.count < totalEnetries && recordsArray.count < totalEnetries + Constsants.numberOfNews{
+            var index = recordsArray.count
+            limit = index + Constsants.numberOfNews
+//            while index < limit {
+//                guard let article = NewsfeedTableViewController.articleResponse?[index] else { return }
+//                recordsArray.append(article)
+//                index = index + 1
+//            }
+            //self.table.reloadData()
+            //нужно перезагрузить таблицу
+        }
     }
+    
 }
